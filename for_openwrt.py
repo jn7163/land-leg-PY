@@ -8,11 +8,11 @@ import urllib2
 import time
 import json
 ISOTIMEFORMAT='%Y-%m-%d %X'
-client="0.0.0.0"                #client ip
+client="10.100.235.72"                #client ip
 nasip="61.146.20.254"                  #net auth ip
-user="user"                     #user
+user="15361157900"                     #user
 password="123456"                      #password
-mac="FF-FF-FF-FF-FF-FF"               #mac address
+mac="B2-AE-EE-BC-AE-24"               #mac address
 wifi="4060"
 url="http://enet.10000.gd.cn:10001/client/"
 login = url + "login"
@@ -26,14 +26,6 @@ def getmd5(str):
     m = hashlib.md5()
     m.update(str)
     return m.hexdigest()
-def encoding(data):
-    types = ['utf-8','gb2312','gbk','iso-8859-1']
-    for type in types:
-        try:
-            return data.decode(type)
-        except:
-            pass
-        return None
 def GetTime():
     return  int((time.time()*1000))/1
 def chall_http_post():
@@ -125,7 +117,7 @@ def kepp_xintiao():
     while 1:
         str1=xintiao()
         if (str1!="x"):
-            print Now_time()+ encoding(str1)
+            print Now_time()+ str1
             str2=str1.split('\"')[3]
             if(str2=="0"):
                 time.sleep(120)
@@ -142,7 +134,7 @@ while 1:
         while 1 :
             if (cc==testurl):
                 r=xintiao()
-                print Now_time()+encoding(r)
+                print Now_time()+r
                 if (r!="x"):
                     str2=r.split('\"')[3]
                     if (str2=="1"):
