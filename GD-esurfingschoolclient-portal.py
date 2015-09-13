@@ -9,7 +9,7 @@ import time
 import json
 ISOTIMEFORMAT='%Y-%m-%d %X'
 client="0.0.0.0"                #client ip
-nasip="61.146.20.254"                  #net auth ip
+nasip=“0.0.0.0”                  #net auth ip
 user="user"                     #user
 password="123456"                      #password
 mac="FF-FF-FF-FF-FF-FF"               #mac address

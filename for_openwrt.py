@@ -8,11 +8,11 @@ import urllib2
 import time
 import json
 ISOTIMEFORMAT='%Y-%m-%d %X'
-client="10.100.235.72"                #client ip
-nasip="61.146.20.254"                  #net auth ip
-user="15361157900"                     #user
+client=“0.0.0.0”                #client ip
+nasip=“0.0.0.0”                  #net auth ip
+user=“user”                     #user
 password="123456"                      #password
-mac="B2-AE-EE-BC-AE-24"               #mac address
+mac=“00-00-00-00-00-00”               #mac address
 wifi="4060"
 url="http://enet.10000.gd.cn:10001/client/"
 login = url + "login"
