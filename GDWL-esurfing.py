@@ -8,14 +8,14 @@ import urllib2
 import time
 import json
 ISOTIMEFORMAT='%Y-%m-%d %X'
-client="0.0.0.0"                #client ip
-nasip="61.146.20.254"                  #net auth ip
-user="user"                     #user
-password="123456"                      #password
-mac="FF-FF-FF-FF-FF-FF"               #mac address
+client=“0.0.0.0”                #client ip
+nasip="61.146.20.254"                 #net auth ip
+user=“user”                     #user
+password=“password”                      #password
+mac=“FF-FF-FF-FF-FF-FF”               #mac address eg.FF-FF-FF-FF-FF-FF
 wifi="4060"
 url="http://enet.10000.gd.cn:10001/client/"
-login = url + "login" 
+login = url + "login"
 challenge = url + "challenge"
 active="http://enet.10000.gd.cn:8001/hbservice/client/active?"
 dianxin="Eshore!@#"
@@ -130,26 +130,25 @@ def kepp_xintiao():
             if(str2=="0"):
                 time.sleep(120)
                 continue
-            elif(str2=="-1"):
+            elif(str2=="1"):
                 loginl()
                 continue
             else:
                 continue
 while 1:
     try:
-        rn=urllib2.urlopen(testurl)
-        cc=rn .geturl()
         while 1 :
+            rn=urllib2.urlopen(testurl)
+            cc=rn .geturl()
             if (cc==testurl):
                 r=xintiao()
                 print Now_time()+encoding(r)
                 if (r!="x"):
                     str2=r.split('\"')[3]
-                    if (str2=="1"):
-                        exit()
-                    else:
+                    if (str2=="0"):
                         break
             loginl()
+            
         time.sleep(60)
         kepp_xintiao()
     except urllib2.HTTPError, e:
