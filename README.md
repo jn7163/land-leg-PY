@@ -2,6 +2,7 @@
 广东天翼校园客户端portal版
 天翼校园portal版的代替客户端
 openwrt请安装完整版python，或者自行添加库
+Openwrt自动获取wan口，多谢‘香蕉炒饭 😂’的测试
 有更好的脚本可以向我添加
 #可用学校列表
   广东文理职业学院（GDWL-esurfing.py)
