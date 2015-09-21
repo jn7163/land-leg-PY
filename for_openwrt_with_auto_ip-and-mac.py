@@ -8,16 +8,10 @@ import urllib2
 import time
 import json
 import os
-def getip():
-    ip=os.popen(". /lib/functions/network.sh; network_get_ipaddr ip wan; echo $ip").read()
-    ip2=str(ip).split("\n")[0]
-    return ip2
 
-ISOTIMEFORMAT='%Y-%m-%d %X'
-nasip="0.0.0.0"               #net auth ip
 user="user"                     #user
-password="password"                      #password
-mac="FF-FF-FF-FF-FF-FF"               #mac address eg.FF-FF-FF-FF-FF-FF
+password="password"             #password
+nasip="0.0.0.0"                 #net auth server ip
 wifi="1050"
 url="http://enet.10000.gd.cn:10001/client/"
 login = url + "login"
@@ -26,7 +20,19 @@ active="http://enet.10000.gd.cn:8001/hbservice/client/active?"
 dianxin="Eshore!@#"
 testurl="http://10000.gd.cn"
 ua='Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
+ISOTIMEFORMAT='%Y-%m-%d %X'
+
+def getip():
+    ip=os.popen(". /lib/functions/network.sh; network_get_ipaddr ip wan; echo $ip").read()
+    ip2=str(ip).split("\n")[0]
+    return ip2
 client=getip()
+def getmac():
+    ic=os.popen("ifconfig |grep -B1 \'"+client+"\' |awk \'/HWaddr/ { print $5 }\'").read()
+    ic=str(ic).split("\n")[0]
+    ic=ic.replace(":","-")
+    return ic
+mac=getmac()
 def getmd5(str):
     import hashlib
     m = hashlib.md5()
