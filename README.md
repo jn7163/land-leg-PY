@@ -1,15 +1,48 @@
-# GD-esurfingschoolclient-portal
-广东天翼校园客户端portal版
-天翼校园portal版的代替客户端
-openwrt请安装完整版python，或者自行添加库
-Openwrt自动获取wan口，多谢‘香蕉炒饭 😂’的测试
-有更好的脚本可以向我添加
-#可用学校列表
-  广东文理职业学院（GDWL-esurfing.py，NASIP:61.146.20.254)
+# land-leg-PY
 
-  广东理工职业学院 (NASIP:61.142.108.88)
-***
-    >个人学习项目，请勿用于商业
-#开源协议
-AGPL V3
-特别指出禁止任何个人或者公司将本代码投入商业使用，由此造成的后果和法律责任均与本人无关。 
+chinese name：地腿python版(修改优化自https://github.com/GDCTSCP/GDCTSCP)
+
+a  request forge for tianyi.
+
+for Neusoft Institute, GD
+
+By [XenK0u](http://henbukexue.science)
+
+# update log
+
+## v2.1.1(2016-04-11)
+
+- modify as mobile protocol 修改为安卓客户端协议
+
+- active every 120s 修改为每120s active一次
+
+- add waiting time before do challange 获取登录验证码前增加等待时间防止出现【登录太多30分钟后重试】现象
+
+- print less info 输出信息更美观
+
+- and some name...some blanks...
+
+## v2.0(****-**-**)
+
+- FORGOT_(•̀ω•́ 」∠)_
+
+## v1.0(****-**-**)
+
+- FORGOT_(•̀ω•́ 」∠)_
+
+# getting started
+1. edit and save ```land_legX_test_m_2.1.1.py```
+2. open ```land_legX_test_m_2.1.1.py```
+3. keep open ```land_legX_test_m_2.1.1.py```
+4. enjoy(I guess)
+5. Chinatelecom kick your ass? GO TO STEP1.
+
+# todo
+
+- logout
+
+# license
+
+- only available for study
+
+- AGPL V3
