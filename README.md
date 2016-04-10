@@ -8,6 +8,8 @@ for Neusoft Institute, GD
 
 By [XenK0u](http://henbukexue.science)
 
+![hhh](http://imgsrc.baidu.com/forum/w%3D580%3B/sign=8bb1c1917cf40ad115e4c7eb671713df/6a600c338744ebf89b869296def9d72a6159a7a0.jpg)
+
 # update log
 
 ## v2.1.1(2016-04-11)
@@ -46,3 +48,5 @@ By [XenK0u](http://henbukexue.science)
 - only available for study
 
 - AGPL V3
+
+![hhh](http://i2.piimg.com/f32a59cffa954644.jpg)
