@@ -5,10 +5,10 @@ import json
 
 print 'Powered by XenK0u http://henbukexue.science'
 print '----------------------------------------'
-clientip="马赛克"#填你的IP
-user="马赛克"#天翼账号
-password="马赛克"#天翼密码
-mac="马赛克"#物理地址 mac(FF-FF-FF-FF-FF-FF)
+clientip="马赛克"#your IP
+user="马赛克"#your TIANYI account
+password="马赛克"#your password
+mac="马赛克"#your mac address(FF-FF-FF-FF-FF-FF)
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
 wifi="4060"#1050
@@ -43,12 +43,10 @@ def challange_http_post():
 		timestr=str(GetTime())
 		str1=str(clientip+nasip+mac+timestr+secret)
 		md5str=getmd5(str1).upper()
-		#print Now_time()+"get login code..."
 		url=challenge
 		#values ={"username":user,"clientip":clientip,"nasip":nasip,"mac":mac,"timestamp":timestr,"authenticator":md5str}
 		values ={"username":user,"clientip":clientip,"nasip":nasip,"mac":mac,"iswifi":wifi,"timestamp":timestr,"authenticator":md5str}
 		jdata = json.dumps(values)
-		#print Now_time()+ str(values)
 		req = urllib2.Request(url, jdata)
 		req.add_header('User-agent', ua)
 		try:
@@ -64,7 +62,6 @@ def challange_http_post():
 
 def getToken(re):
 	if (re!="x"):
-		#print Now_time()+re,
 		print Now_time()+"split login code..."
 		re = re.split("\",\"")[0]
 		re = re.split("\":\"")[-1]
@@ -88,7 +85,6 @@ def login_http_post(token):
 		#values ={"username":user,"password":password,"clientip":clientip,"nasip":nasip,"mac":mac,"timestamp":timestr,"authenticator":md5str,"iswifi":wifi}
 		values ={"username":user,"password":password,"verificationcode":verifi,"clientip":clientip,"nasip":nasip,"mac":mac,"iswifi":wifi,"timestamp":timestr,"authenticator":md5str}
 		jdata = json.dumps(values)
-		#print Now_time()+str(values)
 		req = urllib2.Request(url, jdata)
 		req.add_header('User-agent',ua)
 		try:
@@ -106,10 +102,8 @@ def active_http_post():
 	timestr=str(GetTime())
 	str1=str(clientip+nasip+mac+timestr+secret)
 	md5str=getmd5(str1).upper()
-	#print Now_time()+"get status..."
 	url=active+"username="+user+"&clientip="+clientip+"&nasip="+nasip+"&mac="+mac+"&timestamp="+timestr+"&authenticator="+md5str
 	req = urllib2.Request(url)
-	#print Now_time()+"GET "+url
 	req.add_header('User-agent', ua)
 	try:
 		response = urllib2.urlopen(req)
