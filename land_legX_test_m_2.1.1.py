@@ -5,10 +5,10 @@ import json
 
 print 'Powered by XenK0u http://henbukexue.science'
 print '----------------------------------------'
-clientip="ÂíÈü¿Ë"#your IP
-user="ÂíÈü¿Ë"#your TIANYI account
-password="ÂíÈü¿Ë"#your password
-mac="ÂíÈü¿Ë"#your mac address(FF-FF-FF-FF-FF-FF)
+clientip="é©¬èµ›å…‹"#your IP
+user="é©¬èµ›å…‹"#your TIANYI account
+password="é©¬èµ›å…‹"#your password
+mac="é©¬èµ›å…‹"#your mac address(FF-FF-FF-FF-FF-FF)
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
 wifi="4060"#1050
