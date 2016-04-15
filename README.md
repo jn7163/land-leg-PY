@@ -41,7 +41,7 @@ By [XenK0u](http://henbukexue.science)
 
 # todo
 
-- logout
+- ~~logout~~
 
 # license
 
