@@ -1,19 +1,24 @@
-#2016/4/9 0:28:20
+#V2.2.0 2016/4/21 12:01
+#author: XenK0u
+#email: xfkencpn@gmail.com
+#website: http://henbukexue.science
+#project website: http://fuckty.ml
 import urllib2
 import time
 import json
+import platform
+import os
 
+print '-------------------------------------------'
 print 'Powered by XenK0u http://henbukexue.science'
-print '----------------------------------------'
+print '-------------------------------------------'
 print
-clientip="马赛克"#your IP
-user="马赛克"#your TIANYI account
-password="马赛克"#your password
-mac="马赛克"#your mac address(FF-FF-FF-FF-FF-FF)
+
+user="fs1606488"#your TIANYI account
+password="81719619"#your password
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
-wifi="4060"#1050
-verifi=""
+wifi="4060"# 1050
 url="http://enet.10000.gd.cn:10001/client/"
 login = url + "login"
 challenge = url + "challenge"
@@ -21,6 +26,33 @@ active="http://enet.10000.gd.cn:8001/hbservice/client/active?"
 secret="Eshore!@#"
 testurl="http://10000.gd.cn"
 ua='Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
+
+def get_ip():
+	if platform.system() == "Windows":
+		import socket
+		ipList = socket.gethostbyname_ex(socket.gethostname())
+		for i in ipList[2]:
+			if i.split('.')[0] == "10":
+				return i
+	ip=os.popen(". /lib/functions/network.sh; network_get_ipaddr ip wan; echo $ip").read()
+	ip2=str(ip).split("\n")[0]
+	return ip2
+
+def get_mac():
+	if platform.system() == "Windows":
+		import uuid
+		mac=uuid.UUID(int = uuid.getnode()).hex[-12:] 
+		return "-".join([mac[e:e+2] for e in range(0,11,2)]).upper()
+	ic=os.popen("ifconfig |grep -B1 \'"+ clientip +"\' |awk \'/HWaddr/ { print $5 }\'").read()
+	ic=str(ic).split("\n")[0]
+	ic=ic.replace(":","-")
+	return ic.upper()
+
+clientip = get_ip()
+mac = get_mac()
+print "Your IP: " + clientip
+print "Your MAC: " + mac
+print '-------------------------------------------'
 
 def getmd5(str):
 	import hashlib
@@ -45,7 +77,6 @@ def challange_http_post():
 		str1=str(clientip+nasip+mac+timestr+secret)
 		md5str=getmd5(str1).upper()
 		url=challenge
-		#values ={"username":user,"clientip":clientip,"nasip":nasip,"mac":mac,"timestamp":timestr,"authenticator":md5str}
 		values ={"username":user,"clientip":clientip,"nasip":nasip,"mac":mac,"iswifi":wifi,"timestamp":timestr,"authenticator":md5str}
 		jdata = json.dumps(values)
 		req = urllib2.Request(url, jdata)
@@ -63,7 +94,6 @@ def challange_http_post():
 
 def getToken(re):
 	if (re!="x"):
-		print Now_time()+"split login code..."
 		re = re.split("\",\"")[0]
 		re = re.split("\":\"")[-1]
 		print Now_time()+"login code is "+re
@@ -83,8 +113,7 @@ def login_http_post(token):
 		md5str=getmd5(str1).upper()
 		print Now_time()+"login..."
 		url=login
-		#values ={"username":user,"password":password,"clientip":clientip,"nasip":nasip,"mac":mac,"timestamp":timestr,"authenticator":md5str,"iswifi":wifi}
-		values ={"username":user,"password":password,"verificationcode":verifi,"clientip":clientip,"nasip":nasip,"mac":mac,"iswifi":wifi,"timestamp":timestr,"authenticator":md5str}
+		values ={"username":user,"password":password,"verificationcode":"","clientip":clientip,"nasip":nasip,"mac":mac,"iswifi":wifi,"timestamp":timestr,"authenticator":md5str}
 		jdata = json.dumps(values)
 		req = urllib2.Request(url, jdata)
 		req.add_header('User-agent',ua)
@@ -119,18 +148,19 @@ def active_http_post():
 
 def loginl():
 	str2=""
-	str3=""
 	while 1:
 		ls=login_http_post(getToken(challange_http_post()))
 		print Now_time()+encoding(ls)
 		if (ls !="x"):
 			str2=ls.split('\"')[3]
-			str3=ls.split('\"')[7]
 			if(str2=="0"):
 				break
 			if(str2=="11064000"):
 				time.sleep(120)
 				break
+			if(str2=="13012000"):
+				print Now_time()+"***PASSWORD ERROR***"
+				exit(0)
 	return str2
 
 def kepp_active_http_post():
