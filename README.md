@@ -36,14 +36,16 @@ By [XenK0u](http://henbukexue.science)
 
 # getting started
 
-- LOGIN
+LOGIN
+
 1. edit and save ```land_legX_m_login.py```
 2. open ```land_legX_m_login.py```
 3. keep open ```land_legX_m_login.py```
 4. enjoy(I guess)
 5. Chinatelecom kick your ass? GO TO STEP1.
 
-- LOGOUT
+LOGOUT
+
 1. edit and save ```land_legX_m_logout.py```
 2. open and close ```land_legX_m_logout.py```
 
