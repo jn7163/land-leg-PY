@@ -41,11 +41,16 @@ By [XenK0u](http://henbukexue.science)
 - FORGOT_(•̀ω•́ 」∠)_
 
 # getting started
-1. edit and save ```land_legX_test_m_2.1.1.py```
-2. open ```land_legX_test_m_2.1.1.py```
-3. keep open ```land_legX_test_m_2.1.1.py```
+- LOGIN
+1. edit and save ```land_legX_m_login.py```
+2. open ```land_legX_m_login.py```
+3. keep open ```land_legX_m_login.py```
 4. enjoy(I guess)
 5. Chinatelecom kick your ass? GO TO STEP1.
+
+- LOGOUT
+1. edit and save ```land_legX_m_logout.py```
+2. open and close ```land_legX_m_logout.py```
 
 # todo
 
