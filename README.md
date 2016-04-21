@@ -12,6 +12,14 @@ By [XenK0u](http://henbukexue.science)
 
 # update log
 
+## v2.2.0(2016-04-21)
+
+- auto get ip and mac 自动获取IP, MAC [参考来源](https://github.com/YianAndCode/f-surfing)
+
+- auto select ip(10.x.x.x) 自动选择10段IP
+
+- password error tips 密码错误提示
+
 ## v2.1.1(2016-04-11)
 
 - modify as mobile protocol 修改为安卓客户端协议
