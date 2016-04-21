@@ -2,11 +2,11 @@
 
 chinese name：地腿python版(修改优化自https://github.com/GDCTSCP/GDCTSCP)
 
-a  request forge for tianyi.
-
-for Neusoft Institute, GD
+a  request forge for tianyi. for Neusoft Institute, GD
 
 By [XenK0u](http://henbukexue.science)
+
+[land leg地腿全家桶官网](http://fuckty.ml)
 
 ![hhh](http://imgsrc.baidu.com/forum/w%3D580%3B/sign=8bb1c1917cf40ad115e4c7eb671713df/6a600c338744ebf89b869296def9d72a6159a7a0.jpg)
 
