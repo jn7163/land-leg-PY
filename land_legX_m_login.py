@@ -14,8 +14,8 @@ print 'Powered by XenK0u http://henbukexue.science'
 print '-------------------------------------------'
 print
 
-user="fs1606488"#your TIANYI account
-password="81719619"#your password
+user="ma sai ke"#your TIANYI account
+password="ma sai ke"#your password
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
 wifi="4060"# 1050
@@ -160,7 +160,7 @@ def loginl():
 				break
 			if(str2=="13012000"):
 				print Now_time()+"***PASSWORD ERROR***"
-				exit(0)
+				time.sleep(60)
 	return str2
 
 def kepp_active_http_post():
