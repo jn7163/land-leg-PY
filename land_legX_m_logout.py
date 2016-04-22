@@ -1,18 +1,43 @@
 import urllib2
 import time
 import json
+import platform
+import os
+
 print 'Powered by XenK0u http://henbukexue.science'
-print '----------------LOGOUT----------------'
+print '-------------------LOGOUT------------------'
 print
-clientip="马赛克"#your LAN IP
 user="马赛克"#your account
 password="马赛克"#your password
-mac="马赛克"#your MAC address(FF-FF-FF-FF-FF-FF)
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
 wifi="4060"#1050
 secret="Eshore!@#"
 ua='Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
+
+def get_ip():
+	if platform.system() == "Windows":
+		import socket
+		ipList = socket.gethostbyname_ex(socket.gethostname())
+		for i in ipList[2]:
+			if i.split('.')[0] == "10":
+				return i
+	ip=os.popen(". /lib/functions/network.sh; network_get_ipaddr ip wan; echo $ip").read()
+	ip2=str(ip).split("\n")[0]
+	return ip2
+
+def get_mac():
+	if platform.system() == "Windows":
+		import uuid
+		mac=uuid.UUID(int = uuid.getnode()).hex[-12:] 
+		return "-".join([mac[e:e+2] for e in range(0,11,2)]).upper()
+	ic=os.popen("ifconfig |grep -B1 \'"+ clientip +"\' |awk \'/HWaddr/ { print $5 }\'").read()
+	ic=str(ic).split("\n")[0]
+	ic=ic.replace(":","-")
+	return ic.upper()
+
+clientip = get_ip()
+mac = get_mac()
 
 def getmd5(str):
 	import hashlib
@@ -58,6 +83,5 @@ def logout_http_post():
 		print Now_time()+ str(e.reason)
 		return "x"
 
-ls=logout_http_post()
-print Now_time()+encoding(ls)
+print Now_time()+encoding(logout_http_post())
 time.sleep(5)
