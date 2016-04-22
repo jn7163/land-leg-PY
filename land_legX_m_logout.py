@@ -7,8 +7,8 @@ import os
 print 'Powered by XenK0u http://henbukexue.science'
 print '-------------------LOGOUT------------------'
 print
-user="ÂíÈü¿Ë"#your account
-password="ÂíÈü¿Ë"#your password
+user="é©¬èµ›å…‹"#your account
+password="é©¬èµ›å…‹"#your password
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
 wifi="4060"#1050
