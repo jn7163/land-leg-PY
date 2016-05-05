@@ -12,9 +12,14 @@ By [XenK0u](http://henbukexue.science)
 
 # update log
 
+## v2.2.1(2016-05-05)
+
+- fix bug(get ip&mac on linux) 修复linux不能自动获取的bug
+- line22 ```eth_name='eth0'#your ethernet adapter's name```
+
 ## v2.2.0(2016-04-21)
 
-- auto get ip and mac 自动获取IP, MAC [参考来源](https://github.com/YianAndCode/f-surfing)
+- auto get ip and mac 自动获取IP, MAC ~~[参考来源]~~ ~~(https://github.com/YianAndCode/f-surfing)~~
 - auto select ip(10.x.x.x) 自动选择10段IP
 - password error tips 密码错误提示
 

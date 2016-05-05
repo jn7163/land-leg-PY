@@ -1,4 +1,4 @@
-#V2.2.0 2016/4/21 12:01
+#V2.2.1 2016/5/5 16:47
 #author: XenK0u
 #email: xfkencpn@gmail.com
 #website: http://henbukexue.science
@@ -8,6 +8,9 @@ import time
 import json
 import platform
 import os
+import fcntl
+import socket
+import struct
 
 print '-------------------------------------------'
 print 'Powered by XenK0u http://henbukexue.science'
@@ -16,6 +19,7 @@ print
 
 user="ma sai ke"#your TIANYI account
 password="ma sai ke"#your password
+eth_name='eth0'#your ethernet adapter's name(linux)
 ISOTIMEFORMAT='%Y-%m-%d %X'
 nasip="219.128.230.1"
 wifi="4060"# 1050
@@ -27,6 +31,25 @@ secret="Eshore!@#"
 testurl="http://10000.gd.cn"
 ua='Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
 
+def get_linux_ip(ifname):
+	try:
+		s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  
+		return socket.inet_ntoa(fcntl.ioctl(
+			s.fileno(),  
+			0x8915,
+			struct.pack('256s', ifname[:15])  
+		)[20:24])
+	except:
+		ips = os.popen("LANG=C ifconfig | grep \"inet addr\" | grep -v \"127.0.0.1\" | awk -F \":\" '{print $2}' | awk '{print $1}'").readlines()
+		if len(ips) > 0:
+			return ips[0]
+	return ''
+
+def get_linux_mac(ifname):
+	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', ifname[:15]))
+	return ':'.join(['%02x' % ord(char) for char in info[18:24]])
+
 def get_ip():
 	if platform.system() == "Windows":
 		import socket
@@ -34,19 +57,14 @@ def get_ip():
 		for i in ipList[2]:
 			if i.split('.')[0] == "10":
 				return i
-	ip=os.popen(". /lib/functions/network.sh; network_get_ipaddr ip wan; echo $ip").read()
-	ip2=str(ip).split("\n")[0]
-	return ip2
+	return get_linux_ip(eth_name)
 
 def get_mac():
 	if platform.system() == "Windows":
 		import uuid
 		mac=uuid.UUID(int = uuid.getnode()).hex[-12:] 
 		return "-".join([mac[e:e+2] for e in range(0,11,2)]).upper()
-	ic=os.popen("ifconfig |grep -B1 \'"+ clientip +"\' |awk \'/HWaddr/ { print $5 }\'").read()
-	ic=str(ic).split("\n")[0]
-	ic=ic.replace(":","-")
-	return ic.upper()
+	return get_linux_mac(eth_name).upper()
 
 clientip = get_ip()
 mac = get_mac()
