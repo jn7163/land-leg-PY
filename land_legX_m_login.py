@@ -8,9 +8,8 @@ import time
 import json
 import platform
 import os
-import fcntl
 import socket
-import struct
+
 
 print '-------------------------------------------'
 print 'Powered by XenK0u http://henbukexue.science'
@@ -32,6 +31,8 @@ testurl="http://10000.gd.cn"
 ua='Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
 
 def get_linux_ip(ifname):
+	import struct
+	import fcntl
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  
 		return socket.inet_ntoa(fcntl.ioctl(
@@ -46,13 +47,14 @@ def get_linux_ip(ifname):
 	return ''
 
 def get_linux_mac(ifname):
+	import struct
+	import fcntl
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', ifname[:15]))
 	return ':'.join(['%02x' % ord(char) for char in info[18:24]])
 
 def get_ip():
 	if platform.system() == "Windows":
-		import socket
 		ipList = socket.gethostbyname_ex(socket.gethostname())
 		for i in ipList[2]:
 			if i.split('.')[0] == "10":
