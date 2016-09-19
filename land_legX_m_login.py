@@ -169,7 +169,9 @@ def active_http_post():
 def loginl():
 	str2=""
 	while 1:
-		ls=login_http_post(getToken(challange_http_post()))
+		#ls=login_http_post(getToken(challange_http_post()))
+		t = ''
+		ls=login_http_post(t)
 		print Now_time()+encoding(ls)
 		if (ls !="x"):
 			str2=ls.split('\"')[3]
