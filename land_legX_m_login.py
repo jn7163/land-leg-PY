@@ -176,6 +176,7 @@ def loginl():
 		if (ls !="x"):
 			str2=ls.split('\"')[3]
 			if(str2=="0"):
+				time.sleep(30)
 				break
 			if(str2=="11064000"):
 				time.sleep(120)
